@@ -1,5 +1,5 @@
 {
-  "name": "DomBlack/php-scrypt",
+  "name": "woohoolabs/php-scrypt",
   "type": "php-ext",
   "license": "BSD-2-Clause",
   "description": "Extension exposing Colin Percival's scrypt hashing algorithm",
