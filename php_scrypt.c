@@ -58,10 +58,12 @@
 
 typedef size_t strsize_t;
 
+#if PHP_VERSION_ID < 80600
 static const zend_module_dep scrypt_deps[] = {
 	ZEND_MOD_REQUIRED("hash")
 	ZEND_MOD_END
 };
+#endif
 
 static PHP_MINIT_FUNCTION(scrypt)
 {
@@ -73,9 +75,13 @@ static PHP_MINIT_FUNCTION(scrypt)
 }
 
 zend_module_entry scrypt_module_entry = {
+#if PHP_VERSION_ID < 80600
 	STANDARD_MODULE_HEADER_EX,
 	NULL,
 	scrypt_deps,
+#else
+	STANDARD_MODULE_HEADER,
+#endif
 	PHP_SCRYPT_EXTNAME,
 	ext_functions,
 	PHP_MINIT(scrypt),
